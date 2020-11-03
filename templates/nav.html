@@ -1,0 +1,12 @@
+<nav>
+	<label class="logo">
+	Assignment 1
+		<ul class="XD">
+			<li><a {% if request.endpoint == "index" %}class="active"{% endif %} href="/">Home</a></li>
+			<li><a {% if request.endpoint == "personal" %}class="active"{% endif %} href="/personal">Personal</a></li>
+			<li><a {% if request.endpoint == "cv" %}class="active"{% endif %} href="/cv">CV</a></li>
+			<li><a {% if request.endpoint == "/" %}class="active"{% endif %} href="#Computing">Computing</a></li>
+			<li><a {% if request.endpoint == "contact" %}class="active"{% endif %} href="/contact">Contact</a></li>
+		</ul>
+	</label>
+</nav>
