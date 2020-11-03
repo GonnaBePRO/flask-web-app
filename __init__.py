@@ -28,5 +28,19 @@ def contact():
 	else:
 		return render_template("contact.html")
 
+	
+@app.route("/computing")
+def computing():
+	subpage = request.args.get('subpage')
+
+	pages = {
+		"1" : render_template("interest1.html"),
+		"2" : render_template("interest2.html"),
+		"3" : render_template("interest3.html")
+	}
+
+	return pages.get(subpage, render_template("computing.html"))
+
+
 if __name__ == "__main__":
 	app.run()
