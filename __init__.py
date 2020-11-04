@@ -41,6 +41,9 @@ def computing():
 
 	return pages.get(subpage, render_template("computing.html"))
 
+@app.route("/interest")
+def interest():
+	return render_template("interest.html")
 
 if __name__ == "__main__":
 	app.run()
