@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Contact</title>
-</head>
-<link href="/static/style.css" rel="stylesheet" type="text/css">
-<body>
-	{% include 'nav.html' %}
+{% extends "template.html" %}
+
+{% block content %}
 	
 	<div class="content">
 		<p>Contact Me<br>
@@ -20,5 +15,4 @@
 			<input type="submit" value="Submit">
 		</form> 
 	</div>
-</body>
-</html>
+{% endblock %}

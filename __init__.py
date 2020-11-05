@@ -27,7 +27,6 @@ def contact():
 		return render_template("sent.html")
 	else:
 		return render_template("contact.html")
-
 	
 @app.route("/computing")
 def computing():
@@ -45,5 +44,6 @@ def computing():
 def interest():
 	return render_template("interest.html")
 
+
 if __name__ == "__main__":
-	app.run()
+	app.run(debug=True)

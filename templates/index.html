@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Home</title>
-</head>
-<link href="/static/style.css" rel="stylesheet" type="text/css">
-<body>
-	{% include 'nav.html' %}
+{% extends "template.html" %}
+
+{% block content %}
 
 	<div class="content">
 		<h1>Welcome</h1><br>
@@ -14,5 +8,4 @@
 		Assignment 1 - Building a Flask-based Webapp</h3></p>
 	</div>
 
-</body>
-</html>
+{% endblock %}

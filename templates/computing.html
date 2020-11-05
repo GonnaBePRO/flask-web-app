@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Computing</title>
-</head>
-<link href="/static/style.css" rel="stylesheet" type="text/css">
-<body>
-	{% include 'nav.html' %}
-	
+{% extends "template.html" %}
+
+{% block content %}
+
 	<div class="content">
 		<p>Computing<br>
 		
@@ -15,5 +10,4 @@
 		<a href="?subpage=3">Programming</a>
 		
 	</div>
-</body>
-</html>
+{% endblock %}

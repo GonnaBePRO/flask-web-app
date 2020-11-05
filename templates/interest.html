@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Personal</title>
-</head>
-<link href="/static/style.css" rel="stylesheet" type="text/css">
-<body>
-	{% include 'nav.html' %}
-	
+{% extends "template.html" %}
+
+{% block content %}
+
 	<div class="content">
 		<h1>INTERESTS</h1><br>
 		<h4>FITNESS & NUTRITION</h2><br>
@@ -24,5 +19,4 @@
 	</div>
 	
 
-</body>
-</html>
+{% endblock %}
