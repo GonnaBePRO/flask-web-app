@@ -1,4 +1,9 @@
 from flask import Flask, render_template, request
+import pymysql
+pymysql.install_as_MySQLdb()
+import MySQLdb
+connection = MySQLdb.connect("localhost" , "root" , "localhost", "majkel_flask")
+
 app = Flask(__name__, static_url_path='/static')
 
 # set FLASK_APP=__init__.py
@@ -8,26 +13,38 @@ app = Flask(__name__, static_url_path='/static')
 @app.route("/")
 def index():
 	return render_template("index.html", title="Home")
-	
+
 @app.route("/personal")
 def personal():
 	return render_template("personal.html", title="Personal")
-	
+
 @app.route("/cv")
 def cv():
-	return render_template("cv.html", title="CV") 
+	return render_template("cv.html", title="CV")
+
+	
+@app.route("/comments")
+def comments():
+	cursor = connection.cursor()
+	cursor.execute("SELECT * FROM comments")
+	return render_template("comments.html", title="Comments", info=cursor)
 
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
 	if request.method == 'POST':
 		email = request.form.get('email')
 		message = request.form.get('message')
-		file = open("comments.txt", "a+")
-		file.write(email + " " + message + "\n")
+		# file = open("comments.txt", "a+")
+		# file.write(email + " " + message + "\n")
+		print("INSERT INTO comments (email, comment) VALUES ('" + email + "', '" + message + "');")
+		cursor = connection.cursor()
+		cursor.execute("INSERT INTO comments (email, comment) VALUES ('" + email + "', '" + message + "');")
+		connection.commit()
+		cursor.close()
 		return render_template("sent.html", title="Thank You")
 	else:
 		return render_template("contact.html", title="Contact")
-	
+
 @app.route("/computing")
 def computing():
 	subpage = request.args.get('subpage')
