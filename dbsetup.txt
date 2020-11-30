@@ -1,0 +1,10 @@
+CREATE DATABASE majkel_flask;
+
+CREATE TABLE comments (id INT(11) AUTO_INCREMENT PRIMARY KEY, email VARCHAR(255) NOT NULL, comment VARCHAR(255) NOT NULL);
+
+INSERT INTO comments (email, comment) VALUES ("MAJKEL@GMAIL.COM", "FLY FLY DONT SLEEP");
+
+
+CREATE USER 'majkel'@'localhost' IDENTIFIED BY 'localhost';
+
+GRANT ALL PRIVILEGES ON majkel_flask.* TO 'majkel'@'localhost' WITH GRANT OPTION;
